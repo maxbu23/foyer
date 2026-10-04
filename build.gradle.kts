@@ -31,3 +31,13 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.register("projectInfo") {
+	doLast {
+		println("======= PROJECT INFO =======")
+		println("Project Name : " + project.name)
+		println("Version : " + project.version)
+		println("Num of dependencies : " + configurations.getByName("implementation").dependencies.size)
+		println("============================")
+	}
+}
