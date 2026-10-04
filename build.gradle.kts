@@ -33,11 +33,14 @@ tasks.withType<Test> {
 }
 
 tasks.register("projectInfo") {
+	val projectName = project.name
+	val projectVersion = project.version
+	val numOfDependencies = configurations.getByName("implementation").dependencies.size
 	doLast {
 		println("======= PROJECT INFO =======")
-		println("Project Name : " + project.name)
-		println("Version : " + project.version)
-		println("Num of dependencies : " + configurations.getByName("implementation").dependencies.size)
+		println("Project Name : $projectName")
+		println("Version : $projectVersion")
+		println("Num of dependencies : $numOfDependencies")
 		println("============================")
 	}
 }
